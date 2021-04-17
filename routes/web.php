@@ -39,3 +39,38 @@ Route::get('edit/brand/{id}', 'Admin\Category\BrandController@Editbrand');
 Route::post('update/brand/{id}', 'Admin\Category\BrandController@Updatebrand');
 
 // Sub Category
+Route::get('admin/subcategory', 'Admin\Category\SubCategoryController@subcategories')->name('sub.categories');
+Route::post('admin/store/subcat', 'Admin\Category\SubCategoryController@storesubcat')->name('store.subcategory');
+Route::get('delete/subcategory/{id}', 'Admin\Category\SubCategoryController@Deletecategory');
+Route::get('edit/subcategory/{id}', 'Admin\Category\SubCategoryController@Editcategory');
+Route::post('update/subcategory/{id}', 'Admin\Category\SubCategoryController@UpdateSubCategory');
+
+// Coupon
+Route::get('admin/sub/coupon', 'Admin\Category\CouponController@Coupon')->name('admin.coupon');
+Route::post('admin/store/coupon', 'Admin\Category\CouponController@StoreCoupon')->name('store.coupon');
+Route::get('delete/coupon/{id}', 'Admin\Category\CouponController@DeleteCoupon');
+Route::get('edit/coupon/{id}', 'Admin\Category\CouponController@EditCoupon');
+Route::post('update/coupon/{id}', 'Admin\Category\CouponController@UpdateCoupon');
+
+// Newslater
+Route::get('admin/newslater', 'Admin\Category\CouponController@Newslater')->name('admin.newslater');
+Route::get('delete/sub/{id}', 'Admin\Category\CouponController@DeleteSub');
+
+// For show sub category with ajax
+Route::get('get/subcategory/{id}', 'Admin\ProductController@GetSubcat');
+
+// Product All Route
+Route::get('admin/product/all', 'Admin\ProductController@index')->name('all.product');
+Route::get('admin/product/add', 'Admin\ProductController@create')->name('add.product');
+Route::post('admin/product/store', 'Admin\ProductController@store')->name('store.product');
+
+Route::get('inactive/product/{id}', 'Admin\ProductController@inactive');
+Route::get('active/product/{id}', 'Admin\ProductController@active');
+Route::get('delete/product/{id}', 'Admin\ProductController@deleteProduct');
+Route::get('view/product/{id}', 'Admin\ProductController@viewProduct');
+Route::get('edit/product/{id}', 'Admin\ProductController@editProduct');
+Route::post('update/product/withoutphoto/{id}', 'Admin\ProductController@updateProductWithoutPhoto');
+Route::post('update/product/photo/{id}', 'Admin\ProductController@updateProductPhoto');
+
+// Frontend All Routes
+Route::post('store/newslater', 'FrontController@StoreNewslater')->name('store.newslater');
